@@ -15,7 +15,9 @@ number_guesses = 0
 
 while random_number != guess:
     guess = int(input("Your guess? "))
-    if guess != random_number:
+    if guess < 1 or guess > 101:
+        print("How dare you!! Please enter a number between 1-100.") 
+    elif guess != random_number:
         if guess > random_number:
             print("Too high! Please try again.")
             number_guesses += 1
