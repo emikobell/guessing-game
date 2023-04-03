@@ -14,7 +14,13 @@ number_guesses = 0
 
 
 while random_number != guess:
-    guess = int(input("Your guess? "))
+
+    try:
+        guess = int(input("Your guess? "))
+    except:
+        print("You didn't input a number!! How dare you!!")
+        continue
+
     if guess < 1 or guess > 101:
         print("How dare you!! Please enter a number between 1-100.") 
     elif guess != random_number:
