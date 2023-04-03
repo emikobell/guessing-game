@@ -1,3 +1,3 @@
 """A number-guessing game."""
 
-print("hi")
+print("Hello! Welcome to the number guessing game!")
