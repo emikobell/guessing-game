@@ -6,7 +6,14 @@ print("Hello! Welcome to the number guessing game!")
 
 name = input("What is your name? ")
 
-print(f"Welcome, {name}. This program generates a random number between 1-100. Please try to guess what that number is.")
+custom_range = input(f"Welcome, {name}. This program generates a random number between 1-100 or you can choose a custom range. Would you like to use a custom range? Answer Y for yes or N for no.")
+if custom_range == "Y":
+    print("Please tell us the lower range: ")
+    lower_range = int(input("> "))
+    print("Please tell us the higher range: ")
+    higher_range = int(input("> "))
+    
+#  Please try to guess what that number is.")
 
 def play_game():
 
