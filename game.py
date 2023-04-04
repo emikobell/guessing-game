@@ -1,28 +1,37 @@
-"""A number-guessing game."""
-
-import random
-
-print("Hello! Welcome to the number guessing game!")
-
-name = input("What is your name? ")
-
-custom_range = input(f"Welcome, {name}. This program generates a random number between 1-100 or you can choose a custom range. Would you like to use a custom range? Answer Y for yes or N for no.")
-if custom_range == "Y":
-    print("Please tell us the lower range: ")
-    lower_range = int(input("> "))
-    print("Please tell us the higher range: ")
-    higher_range = int(input("> "))
-
-#  Please try to guess what that number is.")
-
 def play_game():
+    
+    """A number-guessing game."""
+
+    import random
+    
+    print("Hello! Welcome to the number guessing game!")
+
+    name = input("What is your name? ")
+
+    custom_range = input(f"Welcome, {name}. This program generates a random number between 1-100 or you can choose a custom range. " +
+                          "Would you like to use a custom range? Answer y for yes or n for no. ")
+    
+    lower_range = 1
+    higher_range = 100
+    
+    if custom_range == "y":
+        print("Please tell us the lower range: ")
+        lower_range = int(input("> "))
+        print("Please tell us the higher range: ")
+        higher_range = int(input("> "))
+    elif custom_range == "n":
+        pass
+    else:
+        print("Invalid input. The game will use the standard range between 1-100.")
 
     continue_playing = True
     score = None
 
     while continue_playing:
 
-        random_number = random.randrange(1,100)
+        print("Ready? Please try to guess what the number is.")
+
+        random_number = random.randrange(lower_range, higher_range)
         guess = None
         number_guesses = 0
 
@@ -34,8 +43,8 @@ def play_game():
                 print("You didn't input a number!! How dare you!!")
                 continue
 
-            if guess < 1 or guess > 101:
-                print("How dare you!! Please enter a number between 1-100.") 
+            if guess < lower_range or guess > higher_range:
+                print("How dare you!! Please enter a number within the range.") 
             elif guess != random_number:
                 if guess > random_number:
                     print("Too high! Please try again.")
@@ -49,6 +58,8 @@ def play_game():
                 break
         
         if random_number == guess:
+            number_guesses += 1
+            # Captures correct guess as a guess
             if score == None or score > number_guesses:
                 score = number_guesses
 
@@ -66,5 +77,3 @@ def play_game():
             continue_playing = False
 
 play_game()
-
-# Testing branch differences
