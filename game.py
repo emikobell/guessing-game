@@ -66,5 +66,3 @@ def play_game():
             continue_playing = False
 
 play_game()
-
-# test change -- seeing if I can commit to a branch instead of main -eb
