@@ -11,12 +11,14 @@ print(f"Welcome, {name}. This program generates a random number between 1-100. P
 def play_game():
 
     continue_playing = True
+    score = None
 
     while continue_playing:
 
         random_number = random.randrange(1,100)
         guess = None
         number_guesses = 0
+        
 
         while random_number != guess:
 
@@ -36,7 +38,13 @@ def play_game():
                     print("Too low! Please try again.")
                     number_guesses += 1
 
+        if score == None or score > number_guesses:
+            score = number_guesses
+             
+
+
         print(f"Congratulations! You got the correct number! You found the number in {number_guesses} many tries.")
+        print(f"Your best score is {score}")
 
         play_again = input("Would you like to play again? Type y for yes, and n for no. ")
 
